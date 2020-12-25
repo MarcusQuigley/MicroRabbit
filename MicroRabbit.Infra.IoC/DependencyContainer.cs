@@ -10,6 +10,9 @@ using MicroRabbit.Banking.Domain.Interfaces;
  
 using MicroRabbit.Domain.Core.Bus;
 using MicroRabbit.Infra.Bus;
+using MicroRabbit.Transfer.Data.Context;
+using MicroRabbit.Transfer.Data.Repository;
+using MicroRabbit.Transfer.Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 namespace MicroRabbit.Infra.IoC
 {
@@ -30,8 +33,10 @@ namespace MicroRabbit.Infra.IoC
 
             //data
             services.AddTransient<IAccountRepository, AccountRepository>();
+            services.AddTransient<ITransferRepository, TransferRepository>();
             services.AddTransient<BankingDbContext>();
-                       
+            services.AddTransient<TransferDbContext>();
+
             //services.AddTransient<IMediator>();
         }
     }

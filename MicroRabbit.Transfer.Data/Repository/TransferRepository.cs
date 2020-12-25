@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace MicroRabbit.Transfer.Data.Repository
 {
@@ -16,11 +17,9 @@ namespace MicroRabbit.Transfer.Data.Repository
             _context = context;
         }
 
-        public async Task CreateTransferLogAsync(TransferLog transferLog) {
-            if (transferLog == null) {
-                throw new ArgumentNullException(nameof(transferLog));
-            }
-            await _context.AddAsync(transferLog);
+        public async Task<IEnumerable<TransferLog>> GetTransfersAsync( ) {
+
+            return await _context.TransferLogs.ToListAsync();
         }
     }
 }

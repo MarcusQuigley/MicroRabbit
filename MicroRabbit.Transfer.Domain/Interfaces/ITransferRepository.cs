@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MicroRabbit.Transfer.Domain.Interfaces
 {
-  public interface ITransferRepository
+    public interface ITransferRepository
     {
-      //  Task<IEnumerable<TransferLog>> GetAccountsAsync();
-        Task CreateTransferLogAsync(TransferLog transferLog);
+        Task<IEnumerable<TransferLog>> GetTransfersAsync();
     }
 }

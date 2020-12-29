@@ -9,5 +9,7 @@ namespace MicroRabbit.Transfer.Domain.Interfaces
     public interface ITransferRepository
     {
         Task<IEnumerable<TransferLog>> GetTransfersAsync();
+        Task AddAsync(TransferLog transferLog);
+        Task<bool> SaveChangesAsync();
     }
 }

@@ -22,6 +22,7 @@ namespace MicroRabbit.Banking.Domain.CommandsHandlers
         // the transfer command handler will publish an event to rabbit mq
         public   Task<bool> Handle(CreateTransferCommand request, CancellationToken cancellationToken) {
             //publish event to RabbitMQ
+            //Automapper.ProjectTo..
              _eventBus.Publish(new TransferCreatedEvent(request.From,request.To,request.Amount));
             return Task.FromResult(true);
         }
